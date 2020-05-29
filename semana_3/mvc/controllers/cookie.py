@@ -15,7 +15,7 @@ class Cookie:
             web.setcookie("nombre", nombre,expires="",domain=None)
 
           else:
-            nombre = "Predeterminado" #Si no recibe nada en el parametro de nombre, será NA
+            nombre = "Anonimo" #Si no recibe nada en el parametro de nombre, será NA
             web.setcookie("nombre", nombre,expires="",domain=None)
 
           #Condición para el número de visitas
