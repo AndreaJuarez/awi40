@@ -1,12 +1,13 @@
 import web
-#from datetime import datetime
-#from datetime import date
+from datetime import datetime
 
 class Cookie:
     def GET(self, nombre):
         try:
           cookie = web.cookies()
           visitas = "0" #Variable local
+          now = datetime.now()  #Variable para hora y fecha actual
+
           print(cookie)
 
           #Condición para el nombre del usuario
@@ -14,7 +15,7 @@ class Cookie:
             web.setcookie("nombre", nombre,expires="",domain=None)
 
           else:
-            nombre = "NA" #Si no recibe nada en el parametro de nombre, será NA
+            nombre = "Predeterminado" #Si no recibe nada en el parametro de nombre, será NA
             web.setcookie("nombre", nombre,expires="",domain=None)
 
           #Condición para el número de visitas
@@ -27,7 +28,6 @@ class Cookie:
             web.setcookie("visitas", str(1), expires="", domain=None) #Si no hubiera visitas, genera la primera
             visitas = "1" #Si no hay variable visitas, visitas va a ser igual a 1
 
-          return "Visitas: " + str(visitas) + " Nombre: " + nombre #Concatenar el número de visitas con el nombre
-
+          return "Visitas: " + str(visitas) + " Nombre: " + nombre + " Fecha y Hora Actual: " + str(now)
         except Exception as e:
               return "¡Ah ocurrido un error!" + str(e.args)
