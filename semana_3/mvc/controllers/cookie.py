@@ -1,6 +1,8 @@
 import web
+#from datetime import datetime
+#from datetime import date
 
-class Visitas:
+class Cookie:
     def GET(self, nombre):
         try:
           cookie = web.cookies()
@@ -12,7 +14,7 @@ class Visitas:
             web.setcookie("nombre", nombre,expires="",domain=None)
 
           else:
-            nombre = "Predeterminado" #Si no recibe nada en el parametro de nombre, será NA
+            nombre = "NA" #Si no recibe nada en el parametro de nombre, será NA
             web.setcookie("nombre", nombre,expires="",domain=None)
 
           #Condición para el número de visitas
